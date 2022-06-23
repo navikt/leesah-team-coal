@@ -46,26 +46,16 @@ class QuizApplication(private val teamName: String, database: Database? = null):
      * @return result of the calculation
      */
     fun parseAndCalculation(calculation: String): Int {
-        var result = 0
-
-        var multiplier = 1
-        var subProblem = -1
         val symbols = calculation.split(" ")
-
-        for ((index, c) in symbols.withIndex()) {
-            if(subProblem == -1 || c != ")")
-                when(c) {
-                    "+" -> multiplier = 1
-                    "-" -> multiplier = -1
-                    "(" -> subProblem = index
-                    ")" -> {
-                        result += multiplier * parseAndCalculation(calculation.substring(subProblem + 1, index))
-                        subProblem = -1
-                    }
-                    else -> result += multiplier * c.toInt()
-                }
+        val sym1 = symbols[0].toInt()
+        val sym2 = symbols[2].toInt()
+        return when (symbols[1]) {
+            "+" -> sym1 + sym2
+            "-" -> sym1 - sym2
+            "*" -> sym1 * sym2
+            "/" -> (sym1 / sym2)
+            else -> 0
         }
 
-        return result
     }
 }

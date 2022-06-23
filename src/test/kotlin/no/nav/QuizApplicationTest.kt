@@ -19,12 +19,42 @@ internal class QuizApplicationTest {
     }
 
     @Test
-    fun testMath() {
+    fun testMathPlus() {
+        val infix = "34 + 22"
+        val qa = QuizApplication("coal")
+        qa.handle(Question(category = "arithmetic", question =  infix))
+        val messages = qa.messages()
+        assertEquals(1, messages.size)
+        assertEquals("56", (messages[0] as Answer).answer)
+    }
+    @Test
+    fun testMathMult() {
+        val infix = "10 * 2"
+        val qa = QuizApplication("coal")
+        qa.handle(Question(category = "arithmetic", question =  infix))
+        val messages = qa.messages()
+        assertEquals(1, messages.size)
+        assertEquals("20", (messages[0] as Answer).answer)
+    }
+
+
+    @Test
+    fun testMathMinus() {
         val infix = "34 - 22"
         val qa = QuizApplication("coal")
         qa.handle(Question(category = "arithmetic", question =  infix))
         val messages = qa.messages()
         assertEquals(1, messages.size)
         assertEquals("12", (messages[0] as Answer).answer)
+    }
+
+    @Test
+    fun testMathDivide() {
+        val infix = "9 / 3"
+        val qa = QuizApplication("coal")
+        qa.handle(Question(category = "arithmetic", question =  infix))
+        val messages = qa.messages()
+        assertEquals(1, messages.size)
+        assertEquals("3", (messages[0] as Answer).answer)
     }
 }
