@@ -24,6 +24,8 @@ spec:
   prometheus:
     enabled: true
     path: /metrics
+  ingresses:
+    - https://leesah-team-coal.dev.intern.nav.no
   env:
     - name: QUIZ_TOPIC
       value: "leesah-quiz.leesah-rapid-v2"
