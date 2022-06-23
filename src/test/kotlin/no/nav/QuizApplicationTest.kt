@@ -18,4 +18,13 @@ internal class QuizApplicationTest {
         assertEquals(teamNavn, (messages[0] as Answer).answer)
     }
 
+    @Test
+    fun testMath() {
+        val infix = "34 - 22"
+        val qa = QuizApplication("coal")
+        qa.handle(Question(category = "arithmetic", question =  infix))
+        val messages = qa.messages()
+        assertEquals(1, messages.size)
+        assertEquals("12", (messages[0] as Answer).answer)
+    }
 }
