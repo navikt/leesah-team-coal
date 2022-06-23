@@ -45,6 +45,17 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         answer(question.category, question.id(), res)
     }
 
+    private fun handleNAV(question: Question) {
+
+
+
+        var spm = when (question.question) {
+            "På hvilken nettside finner man informasjon om rekruttering til NAV IT?" -> "detsombetyrnoe.no"
+            "Hva heter applikasjonsplattformen til NAV?" -> "Nais"
+        }
+        answer(question.category, question.id(), spm)
+    }
+
     /**
      * Parse and calculate the string passed in param
      *
