@@ -21,7 +21,7 @@ jobs:
       - name: create docker tag
         run: echo "TAG=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_ENV
     outputs:
-      image: ghcr.io/${{ github.repository }}/sondres-leesah-quizapp:${{ env.TAG }}
+      image: ghcr.io/${{ github.repository }}/leesah-team-coal:${{ env.TAG }}
 
 
   build:
