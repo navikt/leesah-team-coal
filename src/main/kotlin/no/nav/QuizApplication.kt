@@ -18,6 +18,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         if (question.category == "team-registration") handleRegisterTeam(question)
         if (question.category == "arithmetic") handleMath(question)
         if (question.category == "make-ingress") handleIngress(question)
+        if (question.category == "NAV") handleNAV(question)
     }
 
 
@@ -46,12 +47,10 @@ class QuizApplication(private val teamName: String, database: Database? = null):
     }
 
     private fun handleNAV(question: Question) {
-
-
-
         var spm = when (question.question) {
             "På hvilken nettside finner man informasjon om rekruttering til NAV IT?" -> "detsombetyrnoe.no"
             "Hva heter applikasjonsplattformen til NAV?" -> "Nais"
+            else -> ""
         }
         answer(question.category, question.id(), spm)
     }
