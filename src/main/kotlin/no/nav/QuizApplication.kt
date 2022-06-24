@@ -19,6 +19,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
         if (question.category == "arithmetic") handleMath(question)
         if (question.category == "make-ingress") handleIngress(question)
         if (question.category == "NAV") handleNAV(question)
+        if (question.category == "deduplication") handleDeduplication(question)
     }
 
 
@@ -29,6 +30,7 @@ class QuizApplication(private val teamName: String, database: Database? = null):
     /**
      * Spørsmål handlers
      */
+
 
     private fun handleRegisterTeam(question: Question) {
         answer(question.category, question.id(), teamName)
@@ -53,6 +55,11 @@ class QuizApplication(private val teamName: String, database: Database? = null):
             else -> ""
         }
         answer(question.category, question.id(), spm)
+    }
+
+    private fun handleDeduplication(question: Question) {
+        database.
+
     }
 
     /**
